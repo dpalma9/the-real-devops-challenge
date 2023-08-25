@@ -2,7 +2,7 @@
 
 Some extra steps had to be done before start with the Challenge.
 
-# Testing
+## Testing
 
 Test are broken but it wasn't fixed since it wasn't necesary for the Challenge. But requirements are not working.
 ## Database
