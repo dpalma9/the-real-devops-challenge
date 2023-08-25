@@ -2,6 +2,9 @@
 
 Some extra steps had to be done before start with the Challenge.
 
+# Testing
+
+Test are broken but it wasn't fixed since it wasn't necesary for the Challenge. But requirements are not working.
 ## Database
 MongoDB database wasn't provided but the data was. A MongoDB had to be created and import the data on it.
 
@@ -34,6 +37,12 @@ For this challenge the easiest solution will be used: GitHub Actions it's the ch
 The pipeline can be checked on the following file: [`testing.yml`](.github/workflows/actions.yml) on the *.github* folder.
 
 This is a simple workflow where only the UTs will be execute on each commit but only when python files were modified.
+
+> Note: due the previous issues with the test requirements, some off the tests will fail (like it happened locally) but the pipeline work as espected. GitHub will show the following error:
+
+```bash
+ERROR: could not install deps [-rrequirements_dev.txt]; v = InvocationError('/tmp/app/.tox/py36/bin/python -m pip install -rrequirements_dev.txt', 1)
+```
 
 # Challenge 3 and 4. Dockerize the APP and the database
 
