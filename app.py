@@ -1,4 +1,5 @@
 from os import environ
+import json
 
 from bson import json_util
 from bson.objectid import ObjectId
@@ -19,11 +20,14 @@ def restaurants():
     restaurants = find_restaurants(mongo)
     return jsonify(restaurants)
 
-
 @app.route("/api/v1/restaurant/<id>")
 def restaurant(id):
-    restaurants = find_restaurants(mongo, id)
-    return jsonify(restaurants)
+    restaurants_str = find_restaurants(mongo, id)
+    restaurants =  json.loads(restaurants_str)
+    if restaurants:
+        return jsonify(restaurants)
+    else:
+        return ('', 204)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=False, port=8080)

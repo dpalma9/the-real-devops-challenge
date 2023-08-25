@@ -52,3 +52,24 @@ restaurant
 Some [issues](https://stackoverflow.com/questions/76570896/importerror-cannot-import-name-jsonencoder-from-flask-json) related with the Flask and Mongo modules versions that has to be solved.
 
 requeriments.txt had to be changed.
+
+Ejecutamos el contenedor:
+
+```bash
+$ docker run -d -p 8080:8080 --name my-flask-app myflaskapp
+```
+
+O, para probar:
+
+```bash
+$ docker run -ti --rm -p 8080:8080 --entrypoint=/bin/sh --name test myflaskapp
+```
+
+## Testing curls:
+
+``` bash
+$ #echo ok curl
+$ curl localhost:8080/api/v1/restaurant/55f14312c7447c3da7051b26 |jq
+$ #echo for 204
+$ curl localhost:8080/api/v1/restaurant/15f14312c7447c3da7051b26 |jq
+```

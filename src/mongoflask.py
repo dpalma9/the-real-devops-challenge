@@ -4,6 +4,7 @@ import isodate as iso
 from bson import ObjectId
 from flask.json import JSONEncoder
 from werkzeug.routing import BaseConverter
+from bson.json_util import dumps
 
 
 class MongoJSONEncoder(JSONEncoder):
@@ -26,5 +27,8 @@ class ObjectIdConverter(BaseConverter):
 def find_restaurants(mongo, _id=None):
     query = {}
     if _id:
-        query["_id"] = ObjectId(id)
-    return list(mongo.db.restaurant.find(query))
+        query["_id"] = ObjectId(_id)
+    
+    list_cur = list(mongo.db.restaurant.find(query))
+    json_data = dumps(list_cur)
+    return json_data
