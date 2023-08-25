@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-restaurant
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: flask-restaurant
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flask-restaurant
+    spec:
+      containers:
+      - name: flaskapp
+        image: 192.168.49.2:5000/flaskapp:0.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "0.05"
+            memory: 256Mi
+          requests:
+            cpu: "0.025"
+            memory: 64Mi
+        env:
+          - name: MONGO_URI
+            valueFrom:
+              secretKeyRef:
+                name: restaurant-data
+                key: MONGO_URI
+        livenessProbe:
+          tcpSocket:
+            port: 808
+          initialDelaySeconds: 5
+          periodSeconds: 60
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          failureThreshold: 1
+          periodSeconds: 60

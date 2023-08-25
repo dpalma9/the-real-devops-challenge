@@ -17,3 +17,9 @@ At this point both, app and database, were dockerized. Using the ofitial image f
 # Challenge 5. Docker Compose it
 
 Create a Docker compose and use a .env file for all the environment variables and also for security (.env file will be excluded from the repository or uploaded with default values).
+
+# Final Challenge. Deploy it on kubernetes
+
+All the K8S yaml files are under the *k8s* folder.
+
+Instead of using the .env file like on the docker-compose solution, a secret object will be used and each service will mount as env var the corresponding value.
