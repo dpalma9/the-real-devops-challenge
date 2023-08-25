@@ -8,3 +8,8 @@ For this challenge the easiest solution will be used: GitHub Actions it's the ch
 
 The pipeline can be checked on the following file: [`.github/workflows/testing.yml`](.github/workflows/actions.yml).
 
+# Challenge 3. Dockerize the APP
+
+At this point both, app and database, were dockerized. Using the ofitial image from MonngoDB and a light weight base image.
+
+> Note: if this was a real case, Python code could be compiled a create a from Scratch image with just a binary file.
