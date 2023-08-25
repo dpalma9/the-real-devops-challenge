@@ -46,3 +46,9 @@ switched to db restaurantsdb
 restaurant
 > db.restaurant.find()
 ```
+
+# Flask app
+
+Some [issues](https://stackoverflow.com/questions/76570896/importerror-cannot-import-name-jsonencoder-from-flask-json) related with the Flask and Mongo modules versions that has to be solved.
+
+requeriments.txt had to be changed.
