@@ -73,3 +73,11 @@ $ curl localhost:8080/api/v1/restaurant/55f14312c7447c3da7051b26 |jq
 $ #echo for 204
 $ curl localhost:8080/api/v1/restaurant/15f14312c7447c3da7051b26 |jq
 ```
+
+# Docker compose
+
+To run the whole setup:
+
+```bash
+$ docker compose up
+```

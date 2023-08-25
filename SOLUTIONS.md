@@ -15,3 +15,5 @@ At this point both, app and database, were dockerized. Using the ofitial image f
 > Note: if this was a real case, Python code could be compiled a create a from Scratch image with just a binary file.
 
 # Challenge 5. Docker Compose it
+
+Create a Docker compose and use a .env file for all the environment variables and also for security (.env file will be excluded from the repository or uploaded with default values).

@@ -1,7 +1,4 @@
 FROM mongo:4.4-rc
 
-ENV MONGO_INITDB_ROOT_USERNAME=admin
-ENV MONGO_INITDB_ROOT_PASSWORD=1234
-ENV MONGO_INITDB_DATABASE=restaurantsdb
 COPY ./data/restaurant.json /opt
 COPY ./mongodb/load_data.sh /docker-entrypoint-initdb.d/
